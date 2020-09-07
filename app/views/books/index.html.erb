@@ -20,7 +20,9 @@
         </table>
         <div class="row">
           <div class="col-sm-12">
-            <%= link_to "setting", edit_user_path(@user.id), class: "btn btn-default btn-block" %>
+            <%= link_to edit_user_path(@user.id), class: "btn btn-default btn-block" do %>
+              <i class="fas fa-wrench"></i>
+            <% end %>
           </div>
         </div>
       </section>

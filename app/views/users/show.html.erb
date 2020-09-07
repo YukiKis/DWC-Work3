@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
-      
+
       <% if notice %>
         <p class="text-success"><%= notice %></p>
       <% elsif alert %>
         <p class="text-danger"><%= alert %></p>
       <% end %>
-      
+
       <section class="user-info">
         <!--info of current-user-->
         <h2>User info</h2>
@@ -20,11 +20,13 @@
         </table>
         <div class="row">
           <div class="col-sm-12">
-            <%= link_to "setting", edit_user_path(@user.id), class: "btn btn-default btn-block" %>
+            <%= link_to edit_user_path(@user.id), class: "btn btn-default btn-block" do %>
+              <i class="fas fa-wrench"></i>
+            <% end %>
           </div>
         </div>
       </section>
-      
+
             <section class="book-create">
         <h2>New Book</h2>
         <%= form_with model: @book, url: books_path, method: :post, local: true do |f| %>
