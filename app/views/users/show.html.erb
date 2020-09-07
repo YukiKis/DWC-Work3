@@ -5,7 +5,7 @@
   <section class="user-info">
     <!--info of current-user-->
     <h2>User info</h2>
-    <!--profile image-->
+    <%= attachment_image_tag @user, :profile_image %>
     <table>
       <tr><th>name</th><td><%= @user.name %></td></tr>
       <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
