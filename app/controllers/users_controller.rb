@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @book = Book.new
-    @books = Book.where "id == ?", current_user.id
+    @books = Book.where "user_id == ?", current_user.id
   end
 
   def edit
