@@ -1,38 +1,58 @@
-<section class="users-index">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <section class="user-info">
+        <!--info of current-user-->
+        <h2>User info</h2>
 
-  <section class="user-info">
-    <!--info of current-user-->
-    <h2>User info</h2>
-    <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format:"jpeg" %>
-    <table>
-      <tr><th>name</th><td><%= @user.name %></td></tr>
-      <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
-    </table>
-    <%= link_to "setting", edit_user_path(@user.id) %>
-  </section>
+        <table class="table">
+            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "noimage.jpg", size: "100x100" %>
+            <tr><th>name</th><td><%= @user.name %></td></tr>
+            <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
+          </tbody>
+        </table>
 
-  <section class="book-create">
-    <%= form_with model: @book, url: books_path, method: :post do |f| %>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-      <%= f.label :body %>
-      <%= f.text_area :body %>
-      <%= f.submit "Create Book" %>
-    <% end %>
-  </section>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= link_to "setting", edit_user_path(@user.id), class: "btn btn-default btn-block" %>
+          </div>
+        </div>
+      </section>
 
-  <section class="Users">
-    <h2>Users</h2>
-    <table>
-      <tr><th>image</th><th>name</th><th></th></tr>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format:"jpeg", rollback: "images/noimage.jpg" %></td>
-          <td><%= user.name %></td>
-          <td><%= link_to "Show", user_path(user.id) %></td>
-        </tr>
-      <% end %>
-    </table>
-  </section>
+      <section class="book-create">
+        <h2>New Book</h2>
+        <%= form_with model: @book, url: books_path, method: :post, local: true do |f| %>
+          <div class="congrol-group">
+            <p style="margin-bottom: 0;"><%= f.label :title, class: "control-label"%></p>
+            <p><%= f.text_field :title, class: "form-control"%></p>
+          </div>
+          <div>
+            <p style="margin-bottom: 0;"><%= f.label :body, class: "control-label"%></p>
+            <p><%= f.text_area :body, class: "form-control"%></p>
+          </div>
+          <%= f.submit "Create Book", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </section>
+
+    </div>
+
+    <div class="col-sm-9">
+      <section class="Users">
+        <h2>Users</h2>
+        <table class="table">
+          <tr><th style="width: 25%">image</th><th style="width: 55%">name</th><th width="30%"></th></tr>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format:"jpeg", fallback: "noimage.jpg", size: "40x40" %></td>
+              <td><%= user.name %></td>
+              <td><%= link_to "Show", user_path(user.id) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </section>
+  </div>
+</div>
+
+
 
 </section>
