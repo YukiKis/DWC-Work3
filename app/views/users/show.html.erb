@@ -1,1 +1,24 @@
-<h1>Users#SHOW</h1>
+<section class="users-show">
+
+  <h1>Users#SHOW</h1>
+
+  <section class="user-info">
+    <!--info of current-user-->
+    <h2>User info</h2>
+    <!--profile image-->
+    <table>
+      <tr><th>name</th><td><%= @user.name %></td></tr>
+      <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
+    </table>
+    <%= link_to "setting", edit_user_path(@user.id) %>
+  </section>
+
+  <section class="book-create">
+    <!-- creating book -->
+  </section>
+
+  <section class="book-show">
+    <!-- showing books of current_user / all books?-->
+  </section>
+
+</section>

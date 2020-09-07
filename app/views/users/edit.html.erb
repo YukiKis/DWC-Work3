@@ -1,0 +1,12 @@
+<section class="users-edit">
+  <h1>User info</h1>
+  <%= form_with model: @user, local: true do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <!-- label for profile_image-->
+    <!-- attachment_image_tag -->
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction %>
+    <%= f.submit "Update" %>
+  <% end %>
+</section>
