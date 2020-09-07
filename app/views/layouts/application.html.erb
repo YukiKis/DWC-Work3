@@ -25,8 +25,8 @@
                   <li><%= link_to "Books", books_path %></li>
                   <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                  <li><%= link_to "Home", "#" %></li>
-                  <li><%= link_to "About", "#" %></li>
+                  <li><%= link_to "Home", home_top_path %></li>
+                  <li><%= link_to "About", home_about_path %></li>
                   <li><%= link_to "sign up", new_user_registration_path %></li>
                   <li><%= link_to "login", new_user_session_path %></li>
                 <% end %>
@@ -40,5 +40,15 @@
     <main>
       <%= yield %>
     </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="text-right">CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
