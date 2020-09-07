@@ -1,0 +1,28 @@
+<section class="books-index">
+   <section class="user-info">
+    <!--info of current-user-->
+    <h2>User info</h2>
+    <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format:"jpeg", rollback: "images/noimage.jpg" %>
+    <table>
+      <tr><th>name</th><td><%= @user.name %></td></tr>
+      <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
+    </table>
+    <%= link_to "setting", edit_user_path(@user.id) %>
+  </section>
+
+  <section class="book-create">
+    <%= form_with model: @book, url: books_path, method: :post do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+      <%= f.submit "Create Book" %>
+    <% end %>
+  </section>
+
+  <section class="books">
+    <h2>Books</h2>
+    <!--book-info-->
+  </section>
+</section>
+

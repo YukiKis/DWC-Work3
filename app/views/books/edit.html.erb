@@ -1,9 +1,8 @@
-<section class="users-index">
-
-  <section class="user-info">
+<section class="books-edit">
+   <section class="user-info">
     <!--info of current-user-->
     <h2>User info</h2>
-    <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format:"jpeg" %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format:"jpeg", rollback: "images/noimage.jpg" %>
     <table>
       <tr><th>name</th><td><%= @user.name %></td></tr>
       <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
@@ -20,19 +19,9 @@
       <%= f.submit "Create Book" %>
     <% end %>
   </section>
-
-  <section class="Users">
-    <h2>Users</h2>
-    <table>
-      <tr><th>image</th><th>name</th><th></th></tr>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format:"jpeg", rollback: "images/noimage.jpg" %></td>
-          <td><%= user.name %></td>
-          <td><%= link_to "Show", user_path(user.id) %></td>
-        </tr>
-      <% end %>
-    </table>
+  
+  <section class="book-detail">
+    <h2>Book detail</h2>
+    <!--@book-info-->
   </section>
-
 </section>
