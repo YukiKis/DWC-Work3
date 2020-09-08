@@ -25,7 +25,7 @@
                   <li><%= link_to books_path do %><i class="fas fa-book"></i>Books<% end %></li>
                   <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i></span>logout<% end %></li>
                 <% else %>
-                  <li><%= link_to home_top_path do %><i class="fas fa-home"></i>Home<% end %></li>
+                  <li><%= link_to root_path do %><i class="fas fa-home"></i>Home<% end %></li>
                   <li><%= link_to home_about_path do %><i class="fas fa-link"></i>About<% end %></li>
                   <li><%= link_to new_user_registration_path do %><i class="fas fa-edit"></i>sign up<% end %></li>
                   <li><%= link_to new_user_session_path do %><i class="fas fa-sign-in-alt"></i>login<% end %></li>

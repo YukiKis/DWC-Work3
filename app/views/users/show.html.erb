@@ -11,7 +11,6 @@
       <section class="user-info">
         <!--info of current-user-->
         <h2>User info</h2>
-
         <table class="table">
           <tbody>
             <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "noimage.jpg", size: "100x100" %>
@@ -21,15 +20,9 @@
         </table>
 
         <div class="col-xs-12">
-          <% if @user.id == current_user.id %>
              <%= link_to edit_user_path(@user.id), class: "btn btn-default btn-block" do %>
                <i class="fas fa-wrench"></i>
              <% end %>
-          <% else %>
-              <%= link_to user_path(current_user.id), class: "btn btn-default btn-block" do %>
-                <i class="fas fa-wrench"></i>
-              <% end %>
-          <% end %>
         </div>
 
       </section>
