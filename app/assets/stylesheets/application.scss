@@ -16,10 +16,80 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// header
 header{
   background-color: black;
 }
 
-header nav ul li a{
+.nav-item{
   color: gray;
 }
+
+.nav-text{
+  color: #fff;
+  font-size: 20px;
+}
+
+// common
+a:visited{
+  color: gray;
+}
+
+.book-create .btn{
+  margin: 10px 0;
+}
+
+// home-top
+.home-top .main-text{
+  line-height: 2;
+}
+
+.home-top .btn{
+  width: 90%;
+  margin: 0 auto;
+  color: gray;
+}
+
+// registration
+.registration-new .btn,
+.session-new .btn{
+  margin: 10px 0;
+}
+
+// users-index
+.users-index .table tr th:nth-child(1){
+  width: 30%;
+}
+
+.users-index .table tr th:nth-child(2){
+  width: 55%;
+}
+
+.users-index .table tr th:nth-child(3){
+  width: 15%;
+}
+
+// users-edit
+.users-edit .button{
+  padding: 1px 6px;
+}
+
+// books-index
+.books-index .table tr th:nth-child(1){
+  width: 20%;
+}
+
+.books-index .table tr th:nth-child(2){
+  width: 25%;
+}
+
+.books-index .table tr th:nth-child(3){
+  width: 55%;
+}
+
