@@ -10,25 +10,25 @@
   </head>
 
   <body>
-    <header>
+    <header class="navbar">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             <nav class="nav navbar-nav navbar-left">
-              <span class="">Bookers</span>
+              <span style="font-size: 20px; color: white;">Bookers</span>
             </nav>
-            <nav class="nav navbar-nab navbar-right">
+            <nav>
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
-                  <li class=""><%= link_to user_path(current_user.id) do %><i class="fas fa-home"></i>Home<% end %></li>
-                  <li><%= link_to users_path do %><i class="fas fa-user"></i>Users<% end %></li>
-                  <li><%= link_to books_path do %><i class="fas fa-book"></i>Books<% end %></li>
-                  <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i></span>logout<% end %></li>
+                  <li><%= link_to user_path(current_user.id) do %><span class="glyphicon glyphicon-home home" aria-hidden="true">Home</span><% end %></li>
+                  <li><%= link_to users_path do %><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Users<% end %></li>
+                  <li><%= link_to books_path do %><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Books<% end %></li>
+                  <li><%= link_to destroy_user_session_path, method: :delete do %><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>logout<% end %></li>
                 <% else %>
-                  <li><%= link_to root_path do %><i class="fas fa-home"></i>Home<% end %></li>
-                  <li><%= link_to home_about_path do %><i class="fas fa-link"></i>About<% end %></li>
-                  <li><%= link_to new_user_registration_path do %><i class="fas fa-edit"></i>sign up<% end %></li>
-                  <li><%= link_to new_user_session_path do %><i class="fas fa-sign-in-alt"></i>login<% end %></li>
+                  <li><%= link_to root_path do %><span class="glyphicon glyphicon-home home" aria-hidden="true">Home<% end %></li>
+                  <li><%= link_to home_about_path do %><span class="glyphicon glyphicon-link" aria-hidden="true"></span>About<% end %></li>
+                  <li><%= link_to new_user_registration_path do %><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>sign up<% end %></li>
+                  <li><%= link_to new_user_session_path do %><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>login<% end %></li>
                 <% end %>
               </ul>
             </nav>

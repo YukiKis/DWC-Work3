@@ -1,48 +1,4 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-
-      <% if notice %>
-        <p class="text-success"><%= notice %></p>
-      <% elsif alert %>
-        <p class="text-danger"><%= alert %></p>
-      <% end %>
-
-      <section class="user-info">
-        <!--info of current-user-->
-        <h2>User info</h2>
-        <table class="table">
-          <tbody>
-            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "noimage.jpg", size: "100x100" %>
-            <tr><th>name</th><td><%= @user.name %></td></tr>
-            <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
-          </tbody>
-        </table>
-
-        <div class="col-xs-12">
-             <%= link_to edit_user_path(@user.id), class: "btn btn-default btn-block" do %>
-               <i class="fas fa-wrench"></i>
-             <% end %>
-        </div>
-
-      </section>
-
-      <section class="book-create">
-        <h2>New book</h2>
-        <%= form_with model: @book, url: books_path, method: :post, local: true do |f| %>
-          <div class="congrol-group">
-           <p style="margin-bottom: 0;"><%= f.label :title, class: "control-label"%></p>
-            <p><%= f.text_field :title, class: "form-control"%></p>
-          </div>
-          <div>
-            <p style="margin-bottom: 0;"><%= f.label :body, class: "control-label"%></p>
-            <p><%= f.text_area :body, class: "form-control"%></p>
-          </div>
-          <%= f.submit "Create Book", class: "btn btn-primary btn-block" %>
-        <% end %>
-      </section>
-
-    </div>
+<%= render "users/link", user: @user, book: @book %>
 
     <div class="col-xs-9">
       <section class="book-show">

@@ -13,18 +13,13 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 header{
   background-color: black;
 }
 
-header nav span,{
-  color: white ;
-}
-
 header nav ul li a{
   color: gray;
 }
-
-
