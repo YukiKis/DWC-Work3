@@ -1,16 +1,37 @@
-<% if notice %>
- <p class="text-success"><%= notice %></p>
-<% elsif alert %>
-  <p class="text-danger"><%= alert %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <% if notice %>
+        <p class="text-success"><%= notice %></p>
+      <% elsif alert %>
+        <p class="text-danger"><%= alert %></p>
+      <% end %>
+    </div>
 
-<section class="books-edit">
-  <h2>Editting Book</h2>
-  <%= form_with model: @book, local: true do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-    <%= f.submit "Update Book" %>
-  <% end %>
-</section>
+    <div class="col-xs-6 col-xs-offset-3">
+      <section class="books-edit">
+        <h2>Editing Book</h2>
+        <%= form_with model: @book, local: true do |f| %>
+        <% if @book.errors.any? %>
+          <section class="error-explanation">
+            <h2><%= pluralize(@book.errors.count, "error") %> occrued</h2>
+            <ul>
+              <% @book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </section>
+        <% end %>
+
+          <%= f.label :title, class: "control-label" %>
+          <%= f.text_field :title, class: "form-control" %>
+          <%= f.label :body, class: "control-label" %>
+          <%= f.text_area :body, class: "form-control" %>
+          <%= f.submit "Update Book", class: "btn btn-block btn-primary" %>
+        <% end %>
+        <span><%= link_to "Show", book_path(@book.id), class: "text-muted" %> | <%= link_to "Back", books_path, class: "text-muted" %></span>
+      </section>
+    </div>
+
+  </div>
+</div>

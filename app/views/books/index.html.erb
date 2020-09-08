@@ -1,25 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
-      
+    <div class="col-xs-12">
       <% if notice %>
         <p class="text-success"><%= notice %></p>
       <% elsif alert %>
         <p class="text-danger"><%= alert %></p>
       <% end %>
-      
+    </div>
+
+    <div class="col-xs-3">
+
+
       <section class="user-info">
         <!--info of current-user-->
         <h2>User info</h2>
 
         <table class="table">
+          <tbody>
             <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: "jpeg", fallback: "noimage.jpg", size: "100x100" %>
             <tr><th>name</th><td><%= @user.name %></td></tr>
             <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
           </tbody>
         </table>
+
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-xs-12">
             <%= link_to edit_user_path(@user.id), class: "btn btn-default btn-block" do %>
               <i class="fas fa-wrench"></i>
             <% end %>
@@ -27,9 +32,21 @@
         </div>
       </section>
 
-            <section class="book-create">
-        <h2>New Book</h2>
+      <section class="book-create">
+        <h2>New book</h2>
         <%= form_with model: @book, url: books_path, method: :post, local: true do |f| %>
+
+        <% if @book.errors.any? %>
+          <section class="error-explanation">
+            <h3><%= pluralize(@book.errors.count, "error") %> occured</h3>
+            <ul class="error-explanation">
+              <%= @book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </section>
+        <% end %>
+
           <div class="congrol-group">
            <p style="margin-bottom: 0;"><%= f.label :title, class: "control-label"%></p>
             <p><%= f.text_field :title, class: "form-control"%></p>
@@ -43,7 +60,7 @@
       </section>
     </div>
 
-    <div class="col-sm-9">
+    <div class="col-xs-9">
       <section class="books">
         <h2>Books</h2>
         <table class="table table-hover">
